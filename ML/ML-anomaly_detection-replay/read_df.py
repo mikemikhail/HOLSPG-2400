@@ -19,7 +19,7 @@ client = DataFrameClient(host='localhost', port=8086, username = db_user, passwo
 
 def read_data(field_key, measurement_name, condition1, condition2, condition3, limit, label):
   global time_shift
-  if is_demo and time_shift==' - 0d ':
+  if is_replay and time_shift==' - 0d ':
       shift = datetime.now() - datetime(2021, 3, 10)
       time_shift = str(' - ' + str(shift.days) + 'd ')
   condition2 = condition2 + time_shift

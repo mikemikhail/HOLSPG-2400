@@ -4,15 +4,15 @@ mamikhai@cisco.com
 starting constants for monitor.py
 '''
 
-# name of database in Influxdb, production probably mdt_db, demo data is mdt_db-210314
+# name of database in Influxdb, production probably mdt_db, replay data is mdt_db-210321
 target_db = 'mdt_db_210321'
 db_user = 'telegraf'
 db_pass = 'password'
 
 model_directory = './model' # delete or rename folder to have a fresh model, or if you change layers, optimizer, etc.
 
-# demo or replay variables. If 'is_demo' is set, 'time_shift' will be calculated based on mdt_db-nnnnnn timeframe
-is_demo = True
+# demo or replay variables. If 'is_replay' is set, 'time_shift' will be calculated based on mdt_db-nnnnnn timeframe
+is_replay = True
 time_shift = ' - 0d '
 time_accelerator = 5.0 # in replay mode, 1 is normal time speed, 5 is playing 10 minutes in 2 minutes
 

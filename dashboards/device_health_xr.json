@@ -757,7 +757,7 @@
           "measurement": "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT non_negative_derivative(\"bytes-received\", 1s) *8 FROM \"Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters\" WHERE (\"Producer\" =~ /^$Node$/) AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT non_negative_derivative(\"bytes-received\", 1s) *8 FROM \"Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters\" WHERE (\"Producer\" =~ /^$Node$/) AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
@@ -3906,12 +3906,12 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Consumed RSVP BW, [[tag_interface-name]]",
+          "alias": "Consumed RSVP BW, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -3919,7 +3919,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-briefs/interface-brief",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bandwidth-information__pre-standard-dste-interface__allocated-bit-rate\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-briefs/interface-brief\" WHERE (\"Producer\" =~ /^$Node$/) AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bandwidth-information__pre-standard-dste-interface__allocated-bit-rate\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-briefs/interface-brief\" WHERE (\"Producer\" =~ /^$Node$/) AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
@@ -4083,7 +4083,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "B",
           "resultFormat": "time_series",
@@ -4119,7 +4119,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "C",
           "resultFormat": "time_series",
@@ -4155,7 +4155,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "D",
           "resultFormat": "time_series",
@@ -4191,7 +4191,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "E",
           "resultFormat": "time_series",
@@ -4227,7 +4227,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "F",
           "resultFormat": "time_series",
@@ -4263,7 +4263,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "G",
           "resultFormat": "time_series",
@@ -4299,7 +4299,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "H",
           "resultFormat": "time_series",
@@ -4335,7 +4335,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "I",
           "resultFormat": "time_series",
@@ -4405,7 +4405,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "K",
           "resultFormat": "time_series",
@@ -4441,7 +4441,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "L",
           "resultFormat": "time_series",
@@ -4477,7 +4477,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "M",
           "resultFormat": "time_series",
@@ -4513,7 +4513,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "N",
           "resultFormat": "time_series",
@@ -4549,7 +4549,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "O",
           "resultFormat": "time_series",
@@ -4585,7 +4585,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "P",
           "resultFormat": "time_series",
@@ -4621,7 +4621,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "Q",
           "resultFormat": "time_series",
@@ -4657,7 +4657,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "R",
           "resultFormat": "time_series",
@@ -4727,7 +4727,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "T",
           "resultFormat": "time_series",
@@ -4763,7 +4763,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "U",
           "resultFormat": "time_series",
@@ -4799,7 +4799,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "V",
           "resultFormat": "time_series",
@@ -4835,7 +4835,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "W",
           "resultFormat": "time_series",
@@ -4871,7 +4871,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "X",
           "resultFormat": "time_series",
@@ -4907,7 +4907,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "Y",
           "resultFormat": "time_series",
@@ -4943,7 +4943,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "Z",
           "resultFormat": "time_series",
@@ -4979,7 +4979,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "NA",
           "resultFormat": "time_series",
@@ -5049,7 +5049,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "NA",
           "resultFormat": "time_series",
@@ -5085,7 +5085,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "NA",
           "resultFormat": "time_series",
@@ -5121,7 +5121,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "NA",
           "resultFormat": "time_series",
@@ -5157,7 +5157,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "NA",
           "resultFormat": "time_series",
@@ -5193,7 +5193,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "NA",
           "resultFormat": "time_series",
@@ -5229,7 +5229,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "NA",
           "resultFormat": "time_series",
@@ -5265,7 +5265,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bundle-received-messages__hello\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "NA",
           "resultFormat": "time_series",
@@ -5301,7 +5301,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"transmitted-messages__reservation-tear\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE (\"Producer\" =~ /^$Node$/) AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"transmitted-messages__reservation-tear\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/counters/interface-messages/interface-message\" WHERE (\"Producer\" =~ /^$Node$/) AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "NA",
           "resultFormat": "time_series",
@@ -5420,7 +5420,7 @@
       ],
       "targets": [
         {
-          "alias": "MAX RSVP BW, [[tag_interface-name]]",
+          "alias": "MAX RSVP BW, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -5513,7 +5513,7 @@
       ],
       "targets": [
         {
-          "alias": "Allocated RSVP BW, [[tag_interface-name]]",
+          "alias": "Allocated RSVP BW, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -5526,7 +5526,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-briefs/interface-brief",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT \"bandwidth-information__pre-standard-dste-interface__allocated-bit-rate\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-briefs/interface-brief\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT \"bandwidth-information__pre-standard-dste-interface__allocated-bit-rate\" FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-briefs/interface-brief\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
@@ -5609,7 +5609,7 @@
       ],
       "targets": [
         {
-          "alias": "Free RSVP BW, [[tag_interface-name]]",
+          "alias": "Free RSVP BW, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
@@ -5622,7 +5622,7 @@
           "measurement": "Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-briefs/interface-brief",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT (\"bandwidth-information__pre-standard-dste-interface__max-flow-bandwidth\" - \"bandwidth-information__pre-standard-dste-interface__allocated-bit-rate\" ) FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-briefs/interface-brief\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface-name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface-name\"",
+          "query": "SELECT (\"bandwidth-information__pre-standard-dste-interface__max-flow-bandwidth\" - \"bandwidth-information__pre-standard-dste-interface__allocated-bit-rate\" ) FROM \"Cisco-IOS-XR-ip-rsvp-oper:rsvp/interface-briefs/interface-brief\" WHERE \"Producer\" =~ /^$Node$/ AND \"interface_name\" =~ /Bundle.*/ AND $timeFilter GROUP BY \"interface_name\"",
           "rawQuery": false,
           "refId": "C",
           "resultFormat": "time_series",
@@ -5704,12 +5704,12 @@
       ],
       "targets": [
         {
-          "alias": "Bundle RX ACK, [[tag_interface-name]]",
+          "alias": "Bundle RX ACK, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -5742,12 +5742,12 @@
           ]
         },
         {
-          "alias": "Bundle RX HELLO, [[tag_interface-name]]",
+          "alias": "Bundle RX HELLO, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -5780,12 +5780,12 @@
           ]
         },
         {
-          "alias": "Bundle RX PATH, [[tag_interface-name]]",
+          "alias": "Bundle RX PATH, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -5818,12 +5818,12 @@
           ]
         },
         {
-          "alias": "Bundle RX PATH-ERROR, [[tag_interface-name]]",
+          "alias": "Bundle RX PATH-ERROR, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -5856,12 +5856,12 @@
           ]
         },
         {
-          "alias": "Bundle RX PATH-TEAR, [[tag_interface-name]]",
+          "alias": "Bundle RX PATH-TEAR, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -5894,12 +5894,12 @@
           ]
         },
         {
-          "alias": "Bundle RX RESV, [[tag_interface-name]]",
+          "alias": "Bundle RX RESV, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -5932,12 +5932,12 @@
           ]
         },
         {
-          "alias": "Bundle RX RESV CONFIRM, [[tag_interface-name]]",
+          "alias": "Bundle RX RESV CONFIRM, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -5970,12 +5970,12 @@
           ]
         },
         {
-          "alias": "Bundle RX RESV ERROR, [[tag_interface-name]]",
+          "alias": "Bundle RX RESV ERROR, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6008,12 +6008,12 @@
           ]
         },
         {
-          "alias": "Bundle RX RESV TEAR, [[tag_interface-name]]",
+          "alias": "Bundle RX RESV TEAR, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6046,12 +6046,12 @@
           ]
         },
         {
-          "alias": "Bundle TX ACK, [[tag_interface-name]]",
+          "alias": "Bundle TX ACK, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6084,12 +6084,12 @@
           ]
         },
         {
-          "alias": "Bundle TX HELLO, [[tag_interface-name]]",
+          "alias": "Bundle TX HELLO, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6122,12 +6122,12 @@
           ]
         },
         {
-          "alias": "Bundle TX PATH, [[tag_interface-name]]",
+          "alias": "Bundle TX PATH, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6160,12 +6160,12 @@
           ]
         },
         {
-          "alias": "Bundle TX PATH-ERROR, [[tag_interface-name]]",
+          "alias": "Bundle TX PATH-ERROR, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6198,12 +6198,12 @@
           ]
         },
         {
-          "alias": "Bundle TX PATH-TEAR, [[tag_interface-name]]",
+          "alias": "Bundle TX PATH-TEAR, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6236,12 +6236,12 @@
           ]
         },
         {
-          "alias": "Bundle TX RESV, [[tag_interface-name]]",
+          "alias": "Bundle TX RESV, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6274,12 +6274,12 @@
           ]
         },
         {
-          "alias": "Bundle TX RESV CONFIRM, [[tag_interface-name]]",
+          "alias": "Bundle TX RESV CONFIRM, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6312,12 +6312,12 @@
           ]
         },
         {
-          "alias": "Bundle TX RESV ERROR, [[tag_interface-name]]",
+          "alias": "Bundle TX RESV ERROR, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6350,12 +6350,12 @@
           ]
         },
         {
-          "alias": "Bundle TX RESV TEAR, [[tag_interface-name]]",
+          "alias": "Bundle TX RESV TEAR, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6388,12 +6388,12 @@
           ]
         },
         {
-          "alias": "RX ACK, [[tag_interface-name]]",
+          "alias": "RX ACK, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6426,12 +6426,12 @@
           ]
         },
         {
-          "alias": "RX HELLO, [[tag_interface-name]]",
+          "alias": "RX HELLO, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6464,12 +6464,12 @@
           ]
         },
         {
-          "alias": "RX PATH, [[tag_interface-name]]",
+          "alias": "RX PATH, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6502,12 +6502,12 @@
           ]
         },
         {
-          "alias": "RX PATH-ERROR, [[tag_interface-name]]",
+          "alias": "RX PATH-ERROR, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6540,12 +6540,12 @@
           ]
         },
         {
-          "alias": "RX PATH-TEAR, [[tag_interface-name]]",
+          "alias": "RX PATH-TEAR, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6578,12 +6578,12 @@
           ]
         },
         {
-          "alias": "RX RESV, [[tag_interface-name]]",
+          "alias": "RX RESV, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6616,12 +6616,12 @@
           ]
         },
         {
-          "alias": "RX RESV CONFIRM, [[tag_interface-name]]",
+          "alias": "RX RESV CONFIRM, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6654,12 +6654,12 @@
           ]
         },
         {
-          "alias": "Bundle RX RESV ERROR, [[tag_interface-name]]",
+          "alias": "Bundle RX RESV ERROR, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6692,12 +6692,12 @@
           ]
         },
         {
-          "alias": "RX RESV TEAR, [[tag_interface-name]]",
+          "alias": "RX RESV TEAR, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6730,12 +6730,12 @@
           ]
         },
         {
-          "alias": "TX ACK, [[tag_interface-name]]",
+          "alias": "TX ACK, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6768,12 +6768,12 @@
           ]
         },
         {
-          "alias": "TX HELLO, [[tag_interface-name]]",
+          "alias": "TX HELLO, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6806,12 +6806,12 @@
           ]
         },
         {
-          "alias": "TX PATH, [[tag_interface-name]]",
+          "alias": "TX PATH, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6844,12 +6844,12 @@
           ]
         },
         {
-          "alias": "TX PATH-ERROR, [[tag_interface-name]]",
+          "alias": "TX PATH-ERROR, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6882,12 +6882,12 @@
           ]
         },
         {
-          "alias": "TX PATH-TEAR, [[tag_interface-name]]",
+          "alias": "TX PATH-TEAR, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6920,12 +6920,12 @@
           ]
         },
         {
-          "alias": "TX RESV, [[tag_interface-name]]",
+          "alias": "TX RESV, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6958,12 +6958,12 @@
           ]
         },
         {
-          "alias": "TX RESV CONFIRM, [[tag_interface-name]]",
+          "alias": "TX RESV CONFIRM, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -6996,12 +6996,12 @@
           ]
         },
         {
-          "alias": "TX RESV ERROR, [[tag_interface-name]]",
+          "alias": "TX RESV ERROR, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }
@@ -7034,12 +7034,12 @@
           ]
         },
         {
-          "alias": "TX RESV TEAR, [[tag_interface-name]]",
+          "alias": "TX RESV TEAR, [[tag_interface_name]]",
           "dsType": "influxdb",
           "groupBy": [
             {
               "params": [
-                "interface-name"
+                "interface_name"
               ],
               "type": "tag"
             }

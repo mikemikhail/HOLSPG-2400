@@ -14,7 +14,7 @@ model_directory = './model' # delete or rename folder to have a fresh model, or 
 # demo or replay variables. If 'is_replay' is set, 'time_shift' will be calculated based on mdt_db-nnnnnn timeframe
 is_replay = True
 time_shift = ' - 0d '
-time_accelerator = 5.0 # in replay mode, 1 is normal time speed, 5 is playing 10 minutes in 2 minutes
+time_accelerator = 20.0 # in replay mode, 1 is normal time speed, 5 is playing 10 minutes in 2 minutes
 
 x_periods = 0
 
@@ -29,6 +29,6 @@ tunnel_ifs = ['tunnel-te11200', 'tunnel-te11201', 'tunnel-te13501', 'tunnel-te13
 # physical_ifs = ['GigabitEthernet0/0/0/0.1224', 'GigabitEthernet0/0/0/0.1424', 'GigabitEthernet0/0/0/0.1225', 'GigabitEthernet0/0/0/0.1525']
 physical_ifs = []
 
-interval = 600 # wait time between prediction cycles, seconds
+interval = 1200 # wait time between prediction cycles, seconds
 hidden_units = [72, 36, 18]     # 36, 36 is an overkill!
 

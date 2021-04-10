@@ -20,19 +20,14 @@ client = DataFrameClient(host='localhost', port=8086, username = db_user, passwo
 def read_data(field_key, measurement_name, condition1, condition2, condition3, limit, label):
   global time_shift
   global initial_shift
-  global previous_shift
   if is_replay:
       if time_shift==' - 0d ':
-          initial_shift = datetime.now() - datetime(2021, 3, 17, 20)
+          initial_shift = int((datetime.now() - start_time).total_seconds())
           shift = initial_shift
-          time_shift = str(' - ' + str(initial_shift.days) + 'd - ' + str(initial_shift.seconds) + 's ')
-          previous_shift = initial_shift
       else:
-          new_shift = datetime.now() - datetime(2021, 3, 17, 20)
-          if abs(new_shift.seconds - previous_shift.seconds) > 60:
-              shift = (new_shift - initial_shift) * time_accelerator
-              previous_shift = new_shift
-              time_shift = str(' - ' + str(new_shift.days) + 'd - ' + str(initial_shift.seconds) + 's + ' + str(shift.seconds) + 's ')
+          new_shift = int((datetime.now() - start_time).total_seconds())
+          shift = int(initial_shift - (new_shift - initial_shift) * time_accelerator)
+      time_shift = str(' - ' + str(shift) + 's ')
 
   condition2 = condition2 + time_shift
   # print(condition2)

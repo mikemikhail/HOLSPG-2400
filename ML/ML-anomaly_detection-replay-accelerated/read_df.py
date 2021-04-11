@@ -23,16 +23,16 @@ def read_data(field_key, measurement_name, condition1, condition2, condition3, l
   global previous_shift
   if is_replay:
       if time_shift==' - 0d ':
-          initial_shift = datetime.now() - datetime(2021, 3, 10)
-          shift = initial_shift
-          time_shift = str(' - ' + str(initial_shift.days) + 'd ')
-          previous_shift = initial_shift
+        initial_shift = datetime.now() - datetime(2021, 3, 10)
+        shift = initial_shift
+        time_shift = str(' - ' + str(initial_shift.days) + 'd ')
+        previous_shift = initial_shift
       else:
-          new_shift = datetime.now() - datetime(2021, 3, 10)
-          if abs(new_shift.seconds - previous_shift.seconds) > 60:
-              shift = (new_shift - initial_shift) * time_accelerator
-              previous_shift = new_shift
-              time_shift = str(' - ' + str(new_shift.days) + 'd + ' + str(shift.seconds) + 's ')
+        new_shift = datetime.now() - datetime(2021, 3, 10)
+        # if abs(new_shift.seconds - previous_shift.seconds) > 60:
+        shift = (new_shift - initial_shift) * time_accelerator
+        previous_shift = new_shift
+        time_shift = str(' - ' + str(new_shift.days) + 'd + ' + str(shift.seconds) + 's ')
 
   condition2 = condition2 + time_shift
   # print(condition2)

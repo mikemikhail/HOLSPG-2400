@@ -1,21 +1,32 @@
-!! IOS XR Configuration 6.6.3
-!! Last configuration change at Sat Mar 27 21:58:31 2021 by cisco
+RP/0/RP0/CPU0:d114#sh run
+Wed Apr 13 12:57:31.211 UTC
+Building configuration...
+!! IOS XR Configuration 7.4.1
+!! Last configuration change at Mon Apr 11 20:18:52 2022 by cisco
 !
-!  IOS-XR Config generated on 2021-02-21 03:53
-! by autonetkit_0.24.1
 hostname d114
+logging console disable
 service timestamps log datetime msec
 service timestamps debug datetime msec
 domain name virl.info
 domain lookup disable
-telnet vrf default ipv4 server max-servers 10
-telnet vrf Mgmt-intf ipv4 server max-servers 10
 username cisco
  group root-lr
  group cisco-support
- secret 5 $1$.q5P$I3hOztSWOWKwGl1mCD40h.
+ password 7 104D000A0618
 !
+username admin
+ group root-lr
+ group cisco-support
+ password 7 03055F060F01
+!
+username lab
+ group root-lr
+ group cisco-support
+ password 7 09404F0B
+!         
 cdp
+!
 vrf Mgmt-intf
  address-family ipv4 unicast
  !
@@ -26,9 +37,13 @@ line template vty
 !
 line console
  exec-timeout 0 0
+ absolute-timeout 0
+ session-timeout 0
 !
 line default
- exec-timeout 720 0
+ exec-timeout 0 0
+ absolute-timeout 0
+ session-timeout 0
 !
 vty-pool default 0 50
 alias exec up show ipv4 vrf all interface brief | include Up
@@ -51,22 +66,18 @@ control-plane
    !
    interface Loopback0
    !
-   interface tunnel-te11412
-   !
-   interface tunnel-te11413
-   !
-   interface tunnel-te11423
-   !
-   interface tunnel-te11424
-   !
-   interface tunnel-te11434
-   !
   !
  !
+!
+netconf-yang agent
+ ssh
 !
 interface Loopback0
  description Loopback
  ipv4 address 192.168.1.114 255.255.255.255
+!
+interface Loopback114
+ ipv4 address 114.1.1.1 255.255.255.255
 !         
 interface tunnel-te11412
  description to s112
@@ -77,6 +88,10 @@ interface tunnel-te11412
 !
 interface tunnel-te11413
  description to d113
+ autoroute announce
+ !
+ destination 192.168.1.113
+ path-option 10 dynamic
 !
 interface tunnel-te11423
  description to s123
@@ -102,19 +117,24 @@ interface tunnel-te11434
 interface MgmtEth0/RP0/CPU0/0
  description OOB Management
  cdp
- ! Configured on launch
  vrf Mgmt-intf
  ipv4 address 198.18.1.114 255.255.255.0
 !
 interface GigabitEthernet0/0/0/0
+ description to p101
+ cdp
+ ipv4 address 10.0.0.22 255.255.255.252
+!         
+interface GigabitEthernet0/0/0/1
  description to p104
  cdp
  ipv4 address 10.0.0.58 255.255.255.252
 !
-interface GigabitEthernet0/0/0/1
- description to p101
- cdp
- ipv4 address 10.0.0.22 255.255.255.252
+interface GigabitEthernet0/0/0/2
+ shutdown
+!
+interface GigabitEthernet0/0/0/3
+ shutdown
 !
 router static
  vrf Mgmt-intf
@@ -154,6 +174,45 @@ router isis ISIS
   !
  !
 !
+router bgp 65000
+ nsr
+ bgp router-id 192.168.1.114
+ bgp graceful-restart
+ bgp log neighbor changes detail
+ address-family ipv4 unicast
+  network 114.1.1.1/32
+ !
+ neighbor 192.168.1.112
+  remote-as 65000
+  update-source Loopback0
+  address-family ipv4 unicast
+  !
+ !
+ neighbor 192.168.1.113
+  remote-as 65000
+  update-source Loopback0
+  address-family ipv4 unicast
+  !
+ !        
+ neighbor 192.168.1.123
+  remote-as 65000
+  update-source Loopback0
+  address-family ipv4 unicast
+  !
+ !
+ neighbor 192.168.1.124
+  remote-as 65000
+  update-source Loopback0
+  address-family ipv4 unicast
+  !
+ !
+ neighbor 192.168.1.134
+  remote-as 65000
+  update-source Loopback0
+  address-family ipv4 unicast
+  !
+ !
+!
 mpls oam
 !
 rsvp
@@ -166,27 +225,14 @@ mpls traffic-eng
  interface GigabitEthernet0/0/0/0
  !
  interface GigabitEthernet0/0/0/1
- !        
-!
-telemetry model-driven
- destination-group COLLECTOR
-  vrf Mgmt-intf
-  address-family ipv4 198.18.134.28 port 5432
-   encoding self-describing-gpb
-   protocol tcp
-  !
- !
- sensor-group TRAFFIC
-  sensor-path Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters
- !
- subscription ANALYTICS
-  sensor-group-id TRAFFIC sample-interval 30000
-  destination-id COLLECTOR
  !
 !
-netconf-yang agent
- ssh
-!
+
 ssh server v2
 ssh server vrf Mgmt-intf
-end       
+telnet vrf default ipv4 server max-servers 10
+telnet vrf Mgmt-intf ipv4 server max-servers 10
+
+end
+
+RP/0/RP0/CPU0:d114# 

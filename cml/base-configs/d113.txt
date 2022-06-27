@@ -1,21 +1,32 @@
-!! IOS XR Configuration 6.6.3
-!! Last configuration change at Sat Mar 27 21:44:57 2021 by cisco
+RP/0/RP0/CPU0:d113#sh run
+Wed Apr 13 12:55:10.500 UTC
+Building configuration...
+!! IOS XR Configuration 7.4.1
+!! Last configuration change at Tue Apr 12 12:45:18 2022 by ZTP
 !
-!  IOS-XR Config generated on 2021-02-21 03:53
-! by autonetkit_0.24.1
 hostname d113
+logging console disable
 service timestamps log datetime msec
 service timestamps debug datetime msec
 domain name virl.info
 domain lookup disable
-telnet vrf default ipv4 server max-servers 10
-telnet vrf Mgmt-intf ipv4 server max-servers 10
 username cisco
  group root-lr
  group cisco-support
- secret 5 $1$SZYI$7h6WAc2eB7FWbToG2CppX/
+ password 7 13061E010803
 !
+username admin
+ group root-lr
+ group cisco-support
+ password 7 11081D081E1C
+!
+username lab
+ group root-lr
+ group cisco-support
+ password 7 09404F0B
+!         
 cdp
+
 vrf Mgmt-intf
  address-family ipv4 unicast
  !
@@ -26,9 +37,13 @@ line template vty
 !
 line console
  exec-timeout 0 0
-!
+ absolute-timeout 0
+ session-timeout 0
+!         
 line default
- exec-timeout 720 0
+ exec-timeout 0 0
+ absolute-timeout 0
+ session-timeout 0
 !
 vty-pool default 0 50
 alias exec up show ipv4 vrf all interface brief | include Up
@@ -54,9 +69,14 @@ control-plane
   !
  !
 !
+ssh
+!
 interface Loopback0
  description Loopback
  ipv4 address 192.168.1.113 255.255.255.255
+!
+interface Loopback113
+ ipv4 address 113.1.1.1 255.255.255.255
 !
 interface tunnel-te11312
  description to s112
@@ -64,7 +84,7 @@ interface tunnel-te11312
  !
  destination 192.168.1.112
  path-option 10 dynamic
-!
+!         
 interface tunnel-te11314
  description to d114
  autoroute announce
@@ -95,8 +115,7 @@ interface tunnel-te11334
 !
 interface MgmtEth0/RP0/CPU0/0
  description OOB Management
- cdp      
- ! Configured on launch
+ cdp
  vrf Mgmt-intf
  ipv4 address 198.18.1.113 255.255.255.0
 !
@@ -110,6 +129,9 @@ interface GigabitEthernet0/0/0/1
  cdp
  ipv4 address 10.0.0.46 255.255.255.252
 !
+interface GigabitEthernet0/0/0/2
+ shutdown 
+!
 router static
  vrf Mgmt-intf
   address-family ipv4 unicast
@@ -118,7 +140,7 @@ router static
    198.18.128.0/18 198.18.1.1
   !
  !
-!         
+!
 router isis ISIS
  is-type level-2-only
  net 49.0001.1921.6800.1113.00
@@ -131,7 +153,7 @@ router isis ISIS
  interface Loopback0
   passive
   address-family ipv4 unicast
-  !
+  !       
  !
  interface GigabitEthernet0/0/0/0
   point-to-point
@@ -145,6 +167,47 @@ router isis ISIS
   hello-padding disable
   address-family ipv4 unicast
    metric 1010
+  !
+ !
+!
+router ospf 1
+!
+router bgp 65000
+ nsr
+ bgp router-id 192.168.1.113
+ bgp graceful-restart
+ bgp log neighbor changes detail
+ address-family ipv4 unicast
+  network 113.1.1.1/32
+ !
+ neighbor 192.168.1.112
+  remote-as 65000
+  update-source Loopback0
+  address-family ipv4 unicast
+  !
+ !
+ neighbor 192.168.1.114
+  remote-as 65000
+  update-source Loopback0
+  address-family ipv4 unicast
+  !
+ !
+ neighbor 192.168.1.123
+  remote-as 65000
+  update-source Loopback0
+  address-family ipv4 unicast
+  !
+ !
+ neighbor 192.168.1.124
+  remote-as 65000
+  update-source Loopback0
+  address-family ipv4 unicast
+  !
+ !
+ neighbor 192.168.1.134
+  remote-as 65000
+  update-source Loopback0
+  address-family ipv4 unicast
   !
  !
 !
@@ -162,25 +225,10 @@ mpls traffic-eng
  interface GigabitEthernet0/0/0/1
  !
 !
-telemetry model-driven
- destination-group COLLECTOR
-  vrf Mgmt-intf
-  address-family ipv4 198.18.134.28 port 50002
-   encoding self-describing-gpb
-   protocol tcp
-  !
- !
- sensor-group TRAFFIC
-  sensor-path Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters
- !
- subscription ANALYTICS
-  sensor-group-id TRAFFIC sample-interval 30000
-  destination-id COLLECTOR
- !
-!
-netconf-yang agent
- ssh
-!
 ssh server v2
 ssh server vrf Mgmt-intf
+telnet vrf default ipv4 server max-servers 10
+telnet vrf Mgmt-intf ipv4 server max-servers 10
 end
+
+RP/0/RP0/CPU0:d113# 

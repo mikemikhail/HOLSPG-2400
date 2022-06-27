@@ -1,8 +1,8 @@
 Building configuration...
 
-Current configuration : 7966 bytes
+Current configuration : 10103 bytes
 !
-! Last configuration change at 23:05:07 UTC Sat Mar 27 2021
+! Last configuration change at 13:02:34 UTC Wed Apr 13 2022
 !
 version 17.3
 service timestamps debug datetime msec
@@ -18,11 +18,11 @@ boot-start-marker
 boot-end-marker
 !
 !
-enable secret 9 $9$Xa0sjGOedVoNvE$Gm0tntS9Iji/mjNQDX8Ss7BzRryhYlF.23z78R4.u3w
+no logging console
 !
 no aaa new-model
 !
-!         
+!
 !
 !
 !
@@ -30,6 +30,10 @@ no aaa new-model
 !
 no ip domain lookup
 ip domain name virl.info
+!
+ip dhcp pool trex
+ network 10.123.1.0 255.255.255.0
+ default-router 10.123.1.1 
 !
 !
 !
@@ -45,7 +49,7 @@ subscriber templating
 ! 
 ! 
 ! 
-!         
+! 
 !
 !
 mpls traffic-eng tunnels
@@ -70,11 +74,11 @@ crypto pki trustpoint SLA-TrustPoint
  enrollment pkcs12
  revocation-check crl
 !
-crypto pki trustpoint TP-self-signed-3661671309
+crypto pki trustpoint TP-self-signed-683793348
  enrollment selfsigned
- subject-name cn=IOS-Self-Signed-Certificate-3661671309
+ subject-name cn=IOS-Self-Signed-Certificate-683793348
  revocation-check none
- rsakeypair TP-self-signed-3661671309
+ rsakeypair TP-self-signed-683793348
 !
 !
 crypto pki certificate chain SLA-TrustPoint
@@ -105,47 +109,45 @@ crypto pki certificate chain SLA-TrustPoint
   80DDCD16 D6BACECA EEBC7CF9 8428787B 35202CDC 60E4616A B623CDBD 230E3AFB 
   418616A9 4093E049 4D10AB75 27E86F73 932E35B5 8862FDAE 0275156F 719BB2F0 
   D697DF7F 28
-        quit
- certificate ca 01
-        quit
-crypto pki certificate chain TP-self-signed-3661671309
+  	quit
+crypto pki certificate chain TP-self-signed-683793348
  certificate self-signed 01
-  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
-  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
-  69666963 6174652D 33363631 36373133 3039301E 170D3231 30333237 30323032 
-  35345A17 0D333130 33323730 32303235 345A3031 312F302D 06035504 03132649 
-  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D33 36363136 
-  37313330 39308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 
-  0A028201 0100D5CE 2F145712 4785CB42 C74F8489 8AE9E0A6 C9B68EF5 90A30298 
-  83F86FD5 9EC7EF8C 250FEDA1 9398A2B4 F4B6D120 86C6D593 F0AF0934 295CB19B 
-  665E3047 24EBBEB2 F66DFCC8 208ADC7D AAA4EF26 AB870E85 9047DDF7 FDC30A05 
-  00DAF061 91DB6FC1 92841E7B 00C69C4E 60033CDA B689832D 1B8EF135 851ECC92 
-  F7832614 4FBADEDF 620D06FC 70A07F2A 8D7F3964 14A30D12 ACEFFF17 701FA21B 
-  5387D2C2 F2A6F50A F7F73211 71AFF860 9D45F527 7A801418 2DA5F3D1 BD6F97CE 
-  BC039FE6 A7859681 8FBA0103 CCC8BAC6 25B61A9E 0B895425 4275F058 A050EC81 
-  A3671D58 752D888E 764BA84D 0848A5E9 2A1DC9B9 ED72673A 45ADB5E9 85731460 
-  2E7E748A A1D10203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 
-  301F0603 551D2304 18301680 14ADE5BF C48BFF0F 34526759 26F6707D BFC43BA0 
-  1E301D06 03551D0E 04160414 ADE5BFC4 8BFF0F34 52675926 F6707DBF C43BA01E 
-  300D0609 2A864886 F70D0101 05050003 82010100 017E87AA 61E48177 B4E43F31 
-  F3BD5283 6FD2D11F DC3D5530 99B268AE D03454A0 2EE145D7 87A58A05 A56DF782 
-  DC1EE30D 758F615A 8D40B788 62E33C6A 3A9D9CDA B5E8DAD4 BCF30FC3 F5EED505 
-  69699784 3D4BBB33 7940B297 99D22E84 20CA9F53 1EBF2E26 8B27F8D3 8522BE45 
-  260390C2 B27EEE8E 69579B6A 914BBFE9 A90A083A 9C5AB91E 51931C14 CB092765 
-  6071C721 31E69BB2 CACD78BB 89F8D4B9 F3F617CE 2DE231C9 46DAEC80 31C35149 
-  DBB29BB9 E7CD115A 7E727978 71BAE6EA 636E8533 EE5C3604 0249D8ED 77CD76FA 
-  5C04C311 707A3AFF A06DF099 69CF8376 646DED82 5AED40D8 1729D7E8 98A0FF5B 
-  7B40B393 63D47AAC 603FF7CB 630C79EF 352ABD4D
-        quit
-!         
-license udi pid CSR1000V sn 9PU2QMPE0VY
+  3082032E 30820216 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
+  30312E30 2C060355 04031325 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 36383337 39333334 38301E17 0D323230 33323632 31323634 
+  395A170D 33323033 32353231 32363439 5A303031 2E302C06 03550403 1325494F 
+  532D5365 6C662D53 69676E65 642D4365 72746966 69636174 652D3638 33373933 
+  33343830 82012230 0D06092A 864886F7 0D010101 05000382 010F0030 82010A02 
+  82010100 AEDA2A1A 086CB5AA 63C7EA2D 62D1EA83 42D8F26C E6B85EFB A69D800E 
+  3F1D89CD 24925E02 A07D25E3 FFD4859C 9EE1B200 FA32B5DB 10C40F50 FE47AA79 
+  45E38808 84ACFD9D 0C1EADDE F5C093EE 2BE66040 09701D50 30987E30 FDAF6B60 
+  E0A60B54 6E9D0661 F8491EAE 56F52C3D 7C3F4362 41A40AD1 5C598C19 BE16A3A9 
+  44C56CB0 1C54BAE6 CC6A2058 A9D605B4 BDFEC669 42D5DBEC 820C0594 302A3276 
+  ED0D2593 521F310F 72B70D19 67DCC397 AE6D351B 9B45E15D D19919A5 2C2263C7 
+  5BA6A5CB 0D8CB36F 3FF94769 A4C7C7AB 6C2E384C E3261835 12D9C659 D3A21EA5 
+  ED32185E 95862E52 FF9C995F 128D564A F9B9D87D 352A9478 75E6B324 EB719722 
+  1B4E5CE3 02030100 01A35330 51300F06 03551D13 0101FF04 05300301 01FF301F 
+  0603551D 23041830 168014FD 1B2B0ACF BDB082F8 93710DE7 A2843C63 52EF6230 
+  1D060355 1D0E0416 0414FD1B 2B0ACFBD B082F893 710DE7A2 843C6352 EF62300D 
+  06092A86 4886F70D 01010505 00038201 01007E48 91B7D580 FCE921C3 1A555633 
+  A8462FBB 75A6F4CA 6F81868B A219FE4D 885812CF 75022319 D9E9445C 95A61FC6 
+  40985CF2 6EFB3ABC 183AAA2C 61037B1A 2133D661 45B64CDE 5DAFEB2A 55FEFA63 
+  7B825CA9 18FB5397 346EC2A3 44260807 1C8195EF 35EE85CE E4098B1F 0C663C4A 
+  0D214EF3 B7AE0384 231B146A 0FECB762 865073DB DFCFE5B1 4B58838C 4FD01DF0 
+  E3037230 343A8FDD D462137B 8D5B5F1A E03531A4 70689C69 36D19A49 9835872B 
+  E03482FE DA567885 12425B3B 8FC2E0CE 5947501E AA1B3DB4 8F3AC9DC ACD82A65 
+  23C09274 E448A81E FB306F46 654D73EC 8BF1039F 87AF4965 AD25BD04 C4911A4D 
+  B92C0C84 44926AF6 B0F6D99B 3FA7D891 A9F1
+  	quit
+!
+license udi pid CSR1000V sn 9D7OX7NRJEE
 diagnostic bootup level minimal
-memory free low-watermark processor 71507
+memory free low-watermark processor 71489
 !
 !
 spanning-tree extend system-id
 !
-username cisco privilege 15 secret 9 $9$bXPhU6zYxEm3rU$BlGWkKgxXuyERDLuCYBehusaL6ZG3QhBmtmTuApiEu2
+username cisco privilege 15 secret 9 $9$YhHrikd0TgVxFE$t95kGfQDA8lHrzyKOpC4FzvgmfwPIriXIc9uZ/fLwWM
 !
 redundancy
 !
@@ -159,7 +161,7 @@ redundancy
 !
 !
 !
-!         
+!
 !
 !
 !
@@ -177,6 +179,9 @@ interface Loopback0
  description Loopback
  ip address 192.168.1.123 255.255.255.255
  isis circuit-type level-2-only
+!
+interface Loopback123
+ ip address 123.1.1.1 255.255.255.255
 !
 interface Tunnel12313
  description to d113
@@ -197,12 +202,21 @@ interface Tunnel12314
  tunnel mpls traffic-eng path-option 10 dynamic
 !
 interface GigabitEthernet1
- description OOB Management
- ip address 198.18.1.123 255.255.255.0
+ description to p102
+ ip address 10.0.0.34 255.255.255.252
+ ip router isis ISIS
  negotiation auto
  cdp enable
+ mpls traffic-eng tunnels
+ bfd interval 250 min_rx 250 multiplier 3
  no mop enabled
  no mop sysid
+ isis circuit-type level-2-only
+ isis network point-to-point 
+ isis metric 1030 level-1
+ isis metric 1030 level-2
+ no isis hello padding
+ ip rsvp bandwidth
 !
 interface GigabitEthernet2
  description ip p103
@@ -211,6 +225,7 @@ interface GigabitEthernet2
  negotiation auto
  cdp enable
  mpls traffic-eng tunnels
+ bfd interval 250 min_rx 250 multiplier 3
  no mop enabled
  no mop sysid
  isis circuit-type level-2-only
@@ -221,20 +236,18 @@ interface GigabitEthernet2
  ip rsvp bandwidth
 !
 interface GigabitEthernet3
- description to p102
- ip address 10.0.0.34 255.255.255.252
- ip router isis ISIS
+ description OOB Management
+ ip address 198.18.1.123 255.255.255.0
  negotiation auto
  cdp enable
- mpls traffic-eng tunnels
  no mop enabled
  no mop sysid
- isis circuit-type level-2-only
- isis network point-to-point 
- isis metric 1030 level-1
- isis metric 1030 level-2
- no isis hello padding
- ip rsvp bandwidth
+!
+interface GigabitEthernet4
+ ip address 10.123.1.1 255.255.255.0
+ negotiation auto
+ no mop enabled
+ no mop sysid
 !
 router isis ISIS
  net 49.0001.1921.6800.1123.00
@@ -242,8 +255,26 @@ router isis ISIS
  advertise passive-only
  metric-style wide
  passive-interface Loopback0
+ bfd all-interfaces
  mpls traffic-eng router-id Loopback0
  mpls traffic-eng level-2
+!
+router bgp 65000
+ bgp router-id 192.168.1.123
+ bgp log-neighbor-changes
+ bgp graceful-restart
+ neighbor 192.168.1.113 remote-as 65000
+ neighbor 192.168.1.113 update-source Loopback0
+ neighbor 192.168.1.114 remote-as 65000
+ neighbor 192.168.1.114 update-source Loopback0
+ !
+ address-family ipv4
+  network 123.1.1.1 mask 255.255.255.255
+  neighbor 192.168.1.113 activate
+  neighbor 192.168.1.113 soft-reconfiguration inbound
+  neighbor 192.168.1.114 activate
+  neighbor 192.168.1.114 soft-reconfiguration inbound
+ exit-address-family
 !
 ip forward-protocol nd
 no ip http server
@@ -289,10 +320,11 @@ call-home
  profile "CiscoTAC-1"
   active
   destination transport-method http
-netconf ssh
+
 !
 !
 !
 !
 !
-end       
+
+end

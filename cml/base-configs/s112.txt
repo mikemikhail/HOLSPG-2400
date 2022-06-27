@@ -1,8 +1,8 @@
 Building configuration...
 
-Current configuration : 5970 bytes
+Current configuration : 9942 bytes
 !
-! Last configuration change at 23:03:13 UTC Sat Mar 27 2021
+! Last configuration change at 13:01:19 UTC Wed Apr 13 2022
 !
 version 17.3
 service timestamps debug datetime msec
@@ -18,11 +18,11 @@ boot-start-marker
 boot-end-marker
 !
 !
-enable secret 9 $9$6Hk55l4HGEfL4k$DEDCq5ZBu8fPtwOa1nJPNH2s4cm4.LagZ4MTmV51o1E
+no logging console
 !
 no aaa new-model
 !
-!         
+!
 !
 !
 !
@@ -45,7 +45,7 @@ subscriber templating
 ! 
 ! 
 ! 
-!         
+! 
 !
 !
 mpls traffic-eng tunnels
@@ -70,11 +70,11 @@ crypto pki trustpoint SLA-TrustPoint
  enrollment pkcs12
  revocation-check crl
 !
-crypto pki trustpoint TP-self-signed-4143125650
+crypto pki trustpoint TP-self-signed-2220427086
  enrollment selfsigned
- subject-name cn=IOS-Self-Signed-Certificate-4143125650
+ subject-name cn=IOS-Self-Signed-Certificate-2220427086
  revocation-check none
- rsakeypair TP-self-signed-4143125650
+ rsakeypair TP-self-signed-2220427086
 !
 !
 crypto pki certificate chain SLA-TrustPoint
@@ -105,19 +105,45 @@ crypto pki certificate chain SLA-TrustPoint
   80DDCD16 D6BACECA EEBC7CF9 8428787B 35202CDC 60E4616A B623CDBD 230E3AFB 
   418616A9 4093E049 4D10AB75 27E86F73 932E35B5 8862FDAE 0275156F 719BB2F0 
   D697DF7F 28
-        quit
-crypto pki certificate chain TP-self-signed-4143125650
+  	quit
+crypto pki certificate chain TP-self-signed-2220427086
  certificate self-signed 01
-        quit
+  30820330 30820218 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 32323230 34323730 3836301E 170D3232 30333236 32313231 
+  35325A17 0D333230 33323532 31323135 325A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D32 32323034 
+  32373038 36308201 22300D06 092A8648 86F70D01 01010500 0382010F 00308201 
+  0A028201 0100C7BA E4C464A7 50AE7107 53EEFA79 EB0248CC AA608B3D C14C2967 
+  4BE946A4 AA6273BB 8F15D4EC 007F0AA5 F017B92E 0E7F2F50 9D8C310A 5C0F33D6 
+  250D6EC6 D3921006 6F33DFB2 E5E42A00 A3152226 F9242A7C 08616288 29621A80 
+  84DD267D 0E64979B A32E7C68 84A65BA4 0B6D5283 CAB941EF 2FCD93EF B6B8AFF6 
+  74F097DC 5955509A 7776244C 34B9A1E8 D5E7055B B6D53C6C 00A7EA9F 7FFB1991 
+  714B3B8E 6660EDD8 D82DFA5D 5C6B74B3 C55FD05B B9B9D4B1 4E22034C EFC29674 
+  B52A886C D9A47D9E B8B91E10 9E8090B2 CAF981AD 1E12170E CD672116 F69059B7 
+  2D538CA9 CA7982B2 A080212D A6B78923 47A966D1 5C70D131 043F1C7F 63777709 
+  59882A97 291F0203 010001A3 53305130 0F060355 1D130101 FF040530 030101FF 
+  301F0603 551D2304 18301680 14B8C393 64EA33D9 0C49A255 B16165C6 C50AEE22 
+  8F301D06 03551D0E 04160414 B8C39364 EA33D90C 49A255B1 6165C6C5 0AEE228F 
+  300D0609 2A864886 F70D0101 05050003 82010100 C5AE0D7B 40486282 BC7A37D2 
+  1CC6C4C9 53A5734D 63BCF230 683E7E29 7819596E EFB452E9 FCF0B992 4D64C7E1 
+  6BA1F831 6CCCD5D6 3484F4CE B432EAD5 87F84F19 E7FD839E 37EF005B 1F65BAD3 
+  10665B9E 4DD9D948 9A37CB15 100E4C5D E67010A3 60EA4186 181B753E 5870C6F9 
+  2458220F B2DA8976 280CEB35 5B7016F1 B2FA4BF2 7CB2316D B8F1590B CB93A757 
+  60DE4513 5704E6B3 6D465EF8 6BBF4499 35181EA8 537AF345 B1022ABF AF7E43ED 
+  277AFE36 098BEDB1 1F5AEF78 96031F69 EEEA55DB 6AC119B3 25F4055D 9CDAB252 
+  538EC581 8C5DB84D D0F9E122 9E8FC038 446C9AFA 03BBB443 6FFF4CD7 D05920C5 
+  B84AE2A0 A8EB72E1 30527AAD 9B28DC4D B9FA23FB
+  	quit
 !
-license udi pid CSR1000V sn 9BOBSFP7BGU
+license udi pid CSR1000V sn 9MOJRSZSQB8
 diagnostic bootup level minimal
-memory free low-watermark processor 72301
+memory free low-watermark processor 71489
 !
-!         
+!
 spanning-tree extend system-id
 !
-username cisco privilege 15 secret 9 $9$uvpZL58WxCvOrU$ZLO4P9F/jbLApDeC85JlptsGI/HmotjdjfZupQ1pjtM
+username cisco privilege 15 secret 9 $9$Ivir52heOJikm.$cthZotTHzJUQNYYyObzl3xaNumCP2q18cRO9bGV1D62
 !
 redundancy
 !
@@ -136,7 +162,7 @@ redundancy
 !
 !
 !
-!         
+!
 !
 !
 !
@@ -149,6 +175,9 @@ interface Loopback0
  description Loopback
  ip address 192.168.1.112 255.255.255.255
  isis circuit-type level-2-only
+!
+interface Loopback112
+ ip address 112.1.1.1 255.255.255.255
 !
 interface Tunnel11213
  description to d113
@@ -169,12 +198,20 @@ interface Tunnel11214
  tunnel mpls traffic-eng path-option 10 dynamic
 !
 interface GigabitEthernet1
- description OOB Management
- ip address 198.18.1.112 255.255.255.0
+ description to p101
+ ip address 10.0.0.14 255.255.255.252
+ ip router isis ISIS
  negotiation auto
  cdp enable
+ mpls traffic-eng tunnels
+ bfd interval 250 min_rx 250 multiplier 3
  no mop enabled
  no mop sysid
+ isis circuit-type level-2-only
+ isis network point-to-point 
+ isis metric 1000 level-2
+ no isis hello padding
+ ip rsvp bandwidth
 !
 interface GigabitEthernet2
  description to p102
@@ -193,19 +230,18 @@ interface GigabitEthernet2
  ip rsvp bandwidth
 !
 interface GigabitEthernet3
- description to p101
- ip address 10.0.0.14 255.255.255.252
- ip router isis ISIS
+ description OOB Management
+ ip address 198.18.1.112 255.255.255.0
  negotiation auto
  cdp enable
- mpls traffic-eng tunnels
  no mop enabled
  no mop sysid
- isis circuit-type level-2-only
- isis network point-to-point 
- isis metric 1000 level-2
- no isis hello padding
- ip rsvp bandwidth
+!
+interface GigabitEthernet4
+ ip address 10.112.1.1 255.255.255.252
+ negotiation auto
+ no mop enabled
+ no mop sysid
 !
 router isis ISIS
  net 49.0001.1921.6800.1112.00
@@ -213,8 +249,26 @@ router isis ISIS
  advertise passive-only
  metric-style wide
  passive-interface Loopback0
+ bfd all-interfaces
  mpls traffic-eng router-id Loopback0
  mpls traffic-eng level-2
+!
+router bgp 65000
+ bgp router-id 192.168.1.112
+ bgp log-neighbor-changes
+ bgp graceful-restart
+ neighbor 192.168.1.113 remote-as 65000
+ neighbor 192.168.1.113 update-source Loopback0
+ neighbor 192.168.1.114 remote-as 65000
+ neighbor 192.168.1.114 update-source Loopback0
+ !
+ address-family ipv4
+  network 112.1.1.1 mask 255.255.255.255
+  neighbor 192.168.1.113 activate
+  neighbor 192.168.1.113 soft-reconfiguration inbound
+  neighbor 192.168.1.114 activate
+  neighbor 192.168.1.114 soft-reconfiguration inbound
+ exit-address-family
 !
 ip forward-protocol nd
 no ip http server
@@ -228,7 +282,7 @@ ip route 10.64.0.0 255.255.0.0 198.18.1.1
 ip route 198.18.128.0 255.255.192.0 198.18.1.1
 ip ssh version 2
 !
-!         
+!
 !
 !
 !
@@ -251,7 +305,7 @@ line vty 0 4
  exec-timeout 12 0
  login local
  transport input ssh
-!         
+!
 call-home
  ! If contact email address in call-home is configured as sch-smart-licensing@cisco.com
  ! the email address configured in Cisco Smart License Portal will be used as contact email address to send SCH notifications.
@@ -259,10 +313,11 @@ call-home
  profile "CiscoTAC-1"
   active
   destination transport-method http
-netconf ssh
+
 !
 !
 !
 !
 !
+
 end
